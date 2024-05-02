@@ -1,0 +1,75 @@
+:root {
+    --primary-color:rgb(0, 132, 255);
+  }
+.comp{
+  height: 100px;
+  width: 100px;
+  background-image: url(/img/check.svg);
+  background-color: var(--primary-color);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 2rem 0 4rem;
+  }
+  
+  .progressbar::before,
+  .progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    z-index: -1;
+  }
+  
+  .progress {
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: 0.3s;
+  }
+  
+  .progress-step {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .progress-step-active {
+    height: 30px;
+    width: 30px;
+    background-image: url(img/check.svg);
+    background-color: var(--primary-color);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #f3f3f3;
+  }
+  .form-step {
+    display: none;
+    transform-origin: top;
+    animation: animate 0.5s;
+  }
+  
+  .form-step-active {
+    display: block;
+  }
